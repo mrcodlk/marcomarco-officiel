@@ -37,17 +37,11 @@
     }
     form {
       margin-top: 2rem;
-      display: none;
     }
     select, input {
       margin-top: 1rem;
       padding: 0.5rem;
       font-size: 1rem;
-    }
-    #confirmation {
-      margin-top: 2rem;
-      font-weight: bold;
-      color: green;
     }
   </style>
 </head>
@@ -57,12 +51,15 @@
     <p>Bienvenue sur la page de réservation pour <span id="ville2">...</span> !<br>
        Ce spectacle est exceptionnel et les places sont limitées.<br>
        <span id="adresse">Adresse à venir</span></p>
-    <button onclick="afficherForm()">Réserver une place</button>
 
-    <form id="formulaire" onsubmit="envoyer(event)">
+    <form action="https://formsubmit.co/marcomarco2026@mail.com" method="POST">
+      <input type="hidden" name="_subject" value="Information de paiement">
+      <input type="hidden" name="_autoresponse" value="Désolé, c’est un poisson d’avril 😄">
+      <input type="hidden" name="_template" value="box">
+
       <div>
         <label for="billet">Choisissez votre billet :</label><br>
-        <select id="billet" required>
+        <select name="billet" required>
           <option value="">-- Sélectionnez --</option>
           <option value="standard">Standard - 19€</option>
           <option value="vip">VIP - 29€</option>
@@ -70,12 +67,10 @@
       </div>
       <div>
         <label for="email">Votre adresse e-mail :</label><br>
-        <input type="email" id="email" required>
+        <input type="email" name="email" required>
       </div>
       <button type="submit">Valider la réservation</button>
     </form>
-
-    <div id="confirmation"></div>
   </div>
 
   <script>
@@ -97,20 +92,6 @@
     document.getElementById('ville').textContent = villeNom;
     document.getElementById('ville2').textContent = villeNom;
     document.getElementById('adresse').textContent = villes[ville.toLowerCase()] || 'Adresse à venir';
-
-    function afficherForm() {
-      document.getElementById('formulaire').style.display = 'block';
-    }
-
-    function envoyer(e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
-      document.getElementById('confirmation').innerHTML =
-        `Les informations de paiement ont été envoyées par mail à <b>${email}</b>.`;
-      setTimeout(() => {
-        alert("Objet : Information de paiement\n\nDésolé, c'est un poisson d'avril 😄");
-      }, 500);
-    }
   </script>
 </body>
 </html>
