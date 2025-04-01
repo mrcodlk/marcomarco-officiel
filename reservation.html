@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réservation – Marco Marco</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      color: #fdd835;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #fdd835;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .btn:hover {
+      background-color: #fbc02d;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Réservation – <span id="ville">...</span></h1>
+    <p>Bienvenue sur la page de réservation pour <span id="ville2">...</span> !<br>
+       Ce spectacle est exceptionnel et les places sont limitées.<br>
+       Réservez maintenant pour ne rien manquer !</p>
+    <a href="#" class="btn">(Fausse) Réserver une place</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const ville = params.get('ville') || 'votre ville';
+    document.getElementById('ville').textContent = ville.charAt(0).toUpperCase() + ville.slice(1);
+    document.getElementById('ville2').textContent = ville.charAt(0).toUpperCase() + ville.slice(1);
+  </script>
+</body>
+</html>
