@@ -11,24 +11,7 @@
       font-family: 'Segoe UI', sans-serif;
       background-color: #ffffff;
       color: #222;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-    .ads-side {
-      width: 120px;
-      padding: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .ads-side ins {
-      display: block;
-    }
-    .content {
-      max-width: 800px;
-      flex-grow: 1;
-      padding: 0 1rem;
+      padding: 0;
     }
     header {
       background-color: #003366;
@@ -41,7 +24,9 @@
       font-size: 2.5rem;
     }
     main {
-      padding: 2rem 0;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
     }
     .event {
       border-left: 4px solid #003366;
@@ -77,26 +62,58 @@
       font-size: 0.9rem;
       color: #666;
     }
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-      .ads-side {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-      }
-      .ads-side ins {
-        width: 90%;
-        margin-bottom: 1rem;
-      }
+    .ads-left, .ads-right {
+      width: 160px;
+      position: fixed;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .ads-left { left: 10px; }
+    .ads-right { right: 10px; }
+    .ads-bottom {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 4rem;
+      flex-wrap: wrap;
     }
   </style>
 </head>
 <body>
-  <div class="ads-side">
-    <!-- Pubs gauche -->
+  <header>
+    <h1>Marco Marco – Tournée 2026</h1>
+    <p>Il parle, il chante, il ose. Tarif unique : 19€</p>
+  </header>
+
+  <main>
+    <div class="event"><h2>8 février 2026 – Namur</h2><p>Théâtre Jardin Passion</p><a href="reservation.html?ville=namur" class="btn">Réserver</a></div>
+    <div class="event"><h2>22 février 2026 – Bièvre</h2><p>Centre Culturel</p><a href="reservation.html?ville=bievre" class="btn">Réserver</a></div>
+    <div class="event"><h2>7 mars 2026 – Bruxelles</h2><p>Théâtre La Flûte Enchantée</p><a href="reservation.html?ville=bruxelles" class="btn">Réserver</a></div>
+    <div class="event"><h2>21 mars 2026 – Genappe</h2><p>Centre Culturel</p><a href="reservation.html?ville=genappe" class="btn">Réserver</a></div>
+    <div class="event"><h2>4 avril 2026 – Mons</h2><p>Théâtre Le Manège</p><a href="reservation.html?ville=mons" class="btn">Réserver</a></div>
+    <div class="event"><h2>18 avril 2026 – Profondeville</h2><p>Centre Culturel</p><a href="reservation.html?ville=profondeville" class="btn">Réserver</a></div>
+    <div class="event"><h2>2 mai 2026 – Ixelles</h2><p>Théâtre Mercelis</p><a href="reservation.html?ville=ixelles" class="btn">Réserver</a></div>
+    <div class="event"><h2>16 mai 2026 – Perwez</h2><p>Centre Culturel</p><a href="reservation.html?ville=perwez" class="btn">Réserver</a></div>
+    <div class="event"><h2>30 mai 2026 – Wavre</h2><p>La Sucrerie</p><a href="reservation.html?ville=wavre" class="btn">Réserver</a></div>
+    <div class="event"><h2>13 juin 2026 – Liège</h2><p>Comédie Centrale</p><a href="reservation.html?ville=liege" class="btn">Réserver</a></div>
+
+    <!-- Pubs bas de page -->
+    <div class="ads-bottom">
+      <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000007"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000008"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Marco Marco. Tous droits réservés.
+  </footer>
+
+  <!-- Pubs latérales -->
+  <div class="ads-left">
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000001" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000002" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -105,36 +122,12 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
-  <div class="content">
-    <header>
-      <h1>Marco Marco – Tournée 2026</h1>
-      <p>Il parle, il chante, il ose. Tarif unique : 19€</p>
-    </header>
-    <main>
-      <!-- Événements ici (inchangés) -->
-      <!-- Pub bas 1 -->
-      <div style="margin-top: 3rem;">
-        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000004" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </div>
-      <!-- Pub bas 2 -->
-      <div style="margin-top: 1.5rem;">
-        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000005" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-      </div>
-    </main>
-    <footer>
-      © 2026 Marco Marco. Tous droits réservés.
-    </footer>
-  </div>
-
-  <div class="ads-side">
-    <!-- Pubs droite -->
+  <div class="ads-right">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000004" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000005" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000006" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000007" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9148360651711002" data-ad-slot="1000000008" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 </body>
